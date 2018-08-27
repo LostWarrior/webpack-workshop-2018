@@ -8,13 +8,18 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   return webpackMerge(
     {
       mode,
-      module:{
-        rules:[
+      module: {
+        rules: [
           {
             test: /\.jpe?g$/,
-            use: [{"url-loader", options:{
-              limit: 5000
-            }}]
+            use: [
+              {
+                loader: "url-loader",
+                options: {
+                  limit: 5000
+                }
+              }
+            ]
           }
         ]
       },
