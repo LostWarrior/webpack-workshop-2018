@@ -8,6 +8,16 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   return webpackMerge(
     {
       mode,
+      module:{
+        rules:[
+          {
+            test: /\.jpe?g$/,
+            use: [{"url-loader", options:{
+              limit: 5000
+            }}]
+          }
+        ]
+      },
       output: {
         filename: "bundle.js"
       },
